@@ -197,3 +197,36 @@ compile_commands.json
 *creator.user*
 
 *_qmlcache.qrc
+
+# ======================
+# Project-specific build & generated folders
+# ======================
+build/
+Build/
+out/
+Generated/
+
+# ======================
+# CMake generated files
+# ======================
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+install_manifest.txt
+CTestTestfile.cmake
+Testing/
+
+# ======================
+# Ninja generated files
+# ======================
+.ninja_deps
+.ninja_log
+build.ninja
+rules.ninja
+
+# ======================
+# Windows noise
+# ======================
+Thumbs.db
+Desktop.ini
+*.stackdump

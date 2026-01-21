@@ -1,12 +1,11 @@
-#include "../include/ControllerMain.hpp"
+#include <QApplication>
+
 
 
 
 int main() {
 
-    ControllerMain controller(parameters here);
 
-    controller.start();
 
 
     return 0;
