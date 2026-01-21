@@ -11,14 +11,17 @@ public:
     ControllerMain(Mode mode);
     ~ControllerMain();
 
-    void start();
+    void startServer();
+    void startClient();
+    void loginPage();
+    void createAccPage();
+    void chatPage();
 
 
 
 
 private:
-    Server server;
-    Client client;
+
 
 };
 #endif //WIZZMANIA_CONTROLLERMAIN_HPP
