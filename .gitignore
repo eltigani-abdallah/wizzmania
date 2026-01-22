@@ -230,3 +230,9 @@ rules.ninja
 Thumbs.db
 Desktop.ini
 *.stackdump
+
+# Project assets / generated exports
+WizzMania/designer/
+WizzManiaContent/fonts/
+WizzManiaContent/images/
+
