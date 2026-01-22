@@ -1,0 +1,13 @@
+<RCC>
+    <qresource>
+        <file>.vscode/settings.json</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>WizzMania.qmlproject</file>
+        <file>WizzMania/Constants.qml</file>
+        <file>WizzMania/EventListModel.qml</file>
+        <file>WizzMania/EventListSimulator.qml</file>
+        <file>WizzMania/qmldir</file>
+        <file>WizzManiaContent/App.qml</file>
+        <file>WizzManiaContent/Screen01.ui.qml</file>
+    </qresource>
+</RCC>
