@@ -28,5 +28,5 @@ private:
     QLineEdit *input;
     QPushButton *sendBtn;
 
-    QString nickname = "Jinx"; // tu peux demander à l’utilisateur via un champ si tu veux
+    QString nickname = "User1";
 };

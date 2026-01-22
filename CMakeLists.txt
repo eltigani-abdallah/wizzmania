@@ -11,12 +11,15 @@ set(CMAKE_AUTORCC ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Widgets Core Network)
 
-qt6_wrap_cpp(WIZZ_MOC_SOURCES
-    view/include/mainwindow.hpp
-)
+# qt6_wrap_cpp(WIZZ_MOC_SOURCES
+#     view/include/mainwindow.hpp
+# )
 
 add_executable(wizzmania
         controller/src/main.cpp
+        view/src/mainwindow.cpp
+
+        
         controller/include/ControllerMain.hpp
         controller/include/Mode.hpp
         # ↑ controller files
@@ -36,20 +39,22 @@ add_executable(wizzmania
         view/include/LoginView.hpp
         view/include/CreateAccount.hpp
         view/include/WelcomeScreen.hpp
+        
+        view/include/mainwindow.hpp
         # ↑ view files
 )
 
-qt_add_executable(wizzmania
-    controller/src/main.cpp
-    view/src/mainwindow.cpp
-    view/include/mainwindow.hpp
-    ${WIZZ_MOC_SOURCES}
-)
+# qt_add_executable(wizzmania
+#     controller/src/main.cpp
+#     view/src/mainwindow.cpp
+#     view/include/mainwindow.hpp
+#     ${WIZZ_MOC_SOURCES}
+# )
 
 target_include_directories(wizzmania PRIVATE
-    controller/include
-    model/include
-    view/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/controller/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/model/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/view/include
 )
 
 target_link_libraries(wizzmania PRIVATE
