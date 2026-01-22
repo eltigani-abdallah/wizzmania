@@ -12,14 +12,14 @@ set(CMAKE_AUTORCC ON)
 find_package(Qt6 REQUIRED COMPONENTS Widgets Core Network)
 
 qt6_wrap_cpp(WIZZ_MOC_SOURCES
-    controller/include/mainwindow.hpp
+    view/include/mainwindow.hpp
 )
 
 
 qt_add_executable(wizzmania
     controller/src/main.cpp
-    controller/src/mainwindow.cpp
-    controller/include/mainwindow.hpp
+    view/src/mainwindow.cpp
+    view/include/mainwindow.hpp
     ${WIZZ_MOC_SOURCES}
 )
 
