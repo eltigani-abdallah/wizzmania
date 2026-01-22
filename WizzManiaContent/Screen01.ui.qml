@@ -15,9 +15,63 @@ Rectangle {
 
     color: Constants.backgroundColor
 
-    Text {
-        text: qsTr("Hello WizzMania")
-        anchors.centerIn: parent
-        font.family: Constants.font.family
+    Grid {
+        id: grid
+        x: 694
+        y: 349
+        width: 400
+        height: 400
+
+        Pane {
+            id: pane
+            anchors.fill: parent
+
+            Item {
+                id: item1
+                x: -12
+                y: -12
+                width: 400
+                height: 32
+
+                TabBar {
+                    id: tabBar
+                    x: 0
+                    y: 0
+                    width: 400
+                    height: 32
+
+                    Image {
+                        id: image
+                        x: 0
+                        y: 0
+                        width: 33
+                        height: 32
+                        source: "qrcimages/template_image.png"
+                        fillMode: Image.PreserveAspectFit
+                    }
+                }
+            }
+
+            TextInput {
+                id: textInput
+                x: -12
+                y: 348
+                width: 400
+                height: 40
+                text: qsTr("Type your message")
+                font.pixelSize: 12
+            }
+
+
+        }
+    }
+
+    RoundButton {
+        id: roundButton
+        x: 1062
+        y: 718
+        width: 21
+        height: 21
+        text: ">"
     }
 }
