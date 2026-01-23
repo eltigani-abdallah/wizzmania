@@ -9,11 +9,11 @@
 #include <QWidget>
 
 static QWidget* makeBubbleWidget(const QString &text, bool outgoing) {
-    auto *container = new QWidget;
-    auto *layout = new QHBoxLayout(container);
+    QWidget *container = new QWidget;
+    QHBoxLayout *layout = new QHBoxLayout(container);
     layout->setContentsMargins(8, 2, 8, 2);
 
-    auto *bubble = new QLabel(text);
+    QLabel *bubble = new QLabel(text);
     bubble->setWordWrap(true);
     bubble->setTextInteractionFlags(Qt::TextSelectableByMouse);
 
@@ -49,11 +49,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     sendBtn = new QPushButton("Send", this);
     sendBtn->setStyleSheet("QPushButton { padding:10px 14px; border-radius:8px; }");
 
-    auto *central = new QWidget(this);
-    auto *root = new QVBoxLayout(central);
+    QWidget *central = new QWidget(this);
+    QVBoxLayout *root = new QVBoxLayout(central);
     root->addWidget(list);
 
-    auto *bottom = new QHBoxLayout();
+    QHBoxLayout *bottom = new QHBoxLayout();
     bottom->addWidget(input, 1);
     bottom->addWidget(sendBtn);
     root->addLayout(bottom);
@@ -113,7 +113,7 @@ void MainWindow::onReadyRead() {
 }
 
 void MainWindow::addBubble(const QString &text, bool outgoing) {
-    auto *item = new QListWidgetItem();
+    QListWidgetItem *item = new QListWidgetItem();
     item->setFlags(item->flags() & ~Qt::ItemIsSelectable);
 
     QWidget *w = makeBubbleWidget(text, outgoing);
