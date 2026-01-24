@@ -13,6 +13,10 @@ class Server {
     Server();
     ~Server();
 
+    void listenForConnections();
+
+    void acceptConnection();
+
 
 
 
@@ -20,9 +24,21 @@ class Server {
 
     private:
 
-    int sockfd; //socket file descriptor
-    int newsockfd; //new socket file descriptor
-    int portno; // port number
+    int sockfd={0}; //socket file descriptor
+    int newsockfd = {0}; //new socket file descriptor
+    int portno={0}; // port number
+    int n={0}; // return value for read() and write()
+
+    socklen_t clilen; // client address size. needed for accept()
+
+    char buffer[256]; //buffer to receive socket connection characters (text)
+
+    struct sockaddr_in serv_addr; // server internet address
+    struct sockaddr_in cli_addr; // client internet address
+
+
+
+
 
 
 };

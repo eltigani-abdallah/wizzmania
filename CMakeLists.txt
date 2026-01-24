@@ -44,6 +44,7 @@ qt_add_executable(wizzmania
     view/src/mainwindow.cpp
     view/include/mainwindow.hpp
     ${WIZZ_MOC_SOURCES}
+        model/src/Server.cpp
 )
 
 target_include_directories(wizzmania PRIVATE
