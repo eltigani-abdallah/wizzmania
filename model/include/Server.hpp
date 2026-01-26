@@ -7,22 +7,27 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <iostream>
 
 class Server {
-    public:
-    Server();
+public:
+    Server(int portNum);
     ~Server();
 
     void listenForConnections();
 
     void acceptConnection();
 
+    void readFromSocket();
+
+    void run();
 
 
 
 
 
-    private:
+
+private:
 
     int sockfd={0}; //socket file descriptor
     int newsockfd = {0}; //new socket file descriptor
