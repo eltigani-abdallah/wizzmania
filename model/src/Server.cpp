@@ -19,7 +19,7 @@ Server::Server(int portNum) {
         std::cerr << "Error opening socket → "<<strerror(errno)<<std::endl;
     }
 
-    if (bind(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0) {
+    if (bind(sockfd, (sockaddr *)&serv_addr, sizeof(serv_addr)) < 0) {
         std::cerr<<"error binding server socket → "<<strerror(errno)<<std::endl;
         exit(-1);
     }
@@ -42,7 +42,7 @@ void Server::listenForConnections() {
 }
 
 void Server::acceptConnection() {
-    newsockfd = accept(sockfd, (struct sockaddr*) &cli_addr, &clilen);
+    newsockfd = accept(sockfd, (sockaddr*) &cli_addr, &clilen);
     if (newsockfd < 0) {
         std::cerr<<"Error accepting new connection → "<<strerror(errno)<<std::endl;
     }
