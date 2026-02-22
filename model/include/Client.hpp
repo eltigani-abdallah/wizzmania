@@ -1,14 +1,13 @@
 #ifndef WIZZMANIA_CLIENT_HPP
 #define WIZZMANIA_CLIENT_HPP
 
-#include <string>
+#include <string.h>
+#include <unistd.h>
 #include <netinet/in.h>
 #include <iostream>
-#include <netdb.h>
-#include <sys/types.h>
-#include <sys/socket.h>
+#include <strings.h>
 
-#include "NetworkEntity.hpp"
+
 
 class Client {
     public:

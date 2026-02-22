@@ -7,4 +7,4 @@ add_executable(clientTest
 )
 
 target_include_directories( clientTest
-PRIVATE ${CMAKE_SOURCES_DIR}/include)
+PRIVATE ${CMAKE_SOURCE_DIR}/include)
