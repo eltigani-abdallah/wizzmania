@@ -27,6 +27,7 @@ Client::Client(int portNum) {
 }
 
 Client::~Client() {
+    std::cout<<"destroying client..."<<std::endl;
     close(sockfd);
 }
 
