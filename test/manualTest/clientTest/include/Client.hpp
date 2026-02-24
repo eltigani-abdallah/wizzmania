@@ -16,9 +16,14 @@ class Client {
     ~Client();
 
     void connectToServer();
+
     void sendMessage();
+
     void receiveMessage();
+
     void showMessage();
+
+    void run();
 
     private:
         int sockfd = {0};
