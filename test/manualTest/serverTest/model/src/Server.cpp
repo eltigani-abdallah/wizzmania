@@ -30,12 +30,11 @@ Server::Server(int portNum) {
 
 }
 
-// Server::~Server() {
-//     std::cout << "destroying server..." << std::endl;
-//     close(sockfd);
-//     close(newsockfd);
-//     delete this;
-// }
+Server::~Server() {
+    std::cout << "destroying server..." << std::endl;
+    close(sockfd);
+    close(newsockfd);
+}
 
 void Server::listenForConnections() {
     listen(sockfd, 5);

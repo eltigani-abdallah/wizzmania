@@ -12,7 +12,7 @@
 class Server {
     public:
     Server(int portNum);
-    //~Server();
+    ~Server();
 
     void listenForConnections();
 
