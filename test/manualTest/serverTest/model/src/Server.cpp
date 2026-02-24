@@ -17,6 +17,7 @@ Server::Server(int portNum) {
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (sockfd < 0) {
         std::cerr << "Error opening socket → "<<strerror(errno)<<std::endl;
+        exit(-1);
     }
 
     if (bind(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0) {
@@ -45,6 +46,7 @@ void Server::acceptConnection() {
     newsockfd = accept(sockfd, (struct sockaddr*) &cli_addr, &clilen);
     if (newsockfd < 0) {
         std::cerr<<"Error accepting new connection → "<<strerror(errno)<<std::endl;
+        exit(-1);
     }
 }
 
@@ -52,6 +54,7 @@ void Server::readFromSocket() {
     n = read(newsockfd, buffer, 256);
     if (n < 0) {
         std::cerr<<"Error reading from socket → "<<strerror(errno)<<std::endl;
+        exit(-1);
     }
 }
 
