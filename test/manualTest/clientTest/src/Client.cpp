@@ -4,8 +4,9 @@
 
 
 Client::Client(int portNum) {
-    bzero((char*)&serv_addr, sizeof(serv_addr));
-    bzero(buffer, 256);
+    void * addr_ptr = &serv_addr;
+    std::memset(addr_ptr, 0, sizeof(serv_addr));
+    std::memset(buffer, 0, sizeof(buffer));
     portno=portNum;
 
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -40,7 +41,7 @@ void Client::connectToServer() {
 
 void Client::sendMessage() {
     printf("please enter message: ");
-    bzero(buffer, 256);
+    std::memset(buffer, 0,sizeof(buffer));
     fgets(buffer, 255,stdin);
     n = write(sockfd, buffer, strlen(buffer));
 
@@ -51,7 +52,7 @@ void Client::sendMessage() {
 }
 
 void Client::receiveMessage() {
-    bzero(buffer, 256);
+    std::memset(buffer, 0,sizeof(buffer));
     n = read(sockfd, buffer, 256);
     if (n<0) {
         std::cerr<<"Error reading from socket"<<std::endl;
