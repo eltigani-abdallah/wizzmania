@@ -5,8 +5,8 @@
 Server::Server(int portNum) {
 
 
-    bzero((char*)&serv_addr, sizeof(serv_addr));
-    bzero(buffer, 256);
+    std::memset(&serv_addr, 0,  sizeof(serv_addr));
+    std::memset(buffer, 0,  sizeof(buffer));
     portno=portNum;
 
     serv_addr.sin_family = AF_INET; //address family. it should always br AF_INET
@@ -17,12 +17,12 @@ Server::Server(int portNum) {
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if (sockfd < 0) {
         std::cerr << "Error opening socket → "<<strerror(errno)<<std::endl;
-        exit(-1);
+        exit(EXIT_FAILURE);
     }
 
     if (bind(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0) {
         std::cerr<<"error binding server socket → "<<strerror(errno)<<std::endl;
-        exit(-1);
+        exit(EXIT_FAILURE);
     }
 
     clilen = sizeof(cli_addr);
@@ -34,7 +34,10 @@ Server::Server(int portNum) {
 Server::~Server() {
     std::cout << "destroying server..." << std::endl;
     close(sockfd);
-    close(newsockfd);
+
+    if (newsockfd > 0) {
+        close(newsockfd);
+    }
 }
 
 void Server::listenForConnections() {
@@ -46,7 +49,7 @@ void Server::acceptConnection() {
     newsockfd = accept(sockfd, (struct sockaddr*) &cli_addr, &clilen);
     if (newsockfd < 0) {
         std::cerr<<"Error accepting new connection → "<<strerror(errno)<<std::endl;
-        exit(-1);
+        exit(EXIT_FAILURE);
     }
 }
 
@@ -54,7 +57,7 @@ void Server::readFromSocket() {
     n = read(newsockfd, buffer, 256);
     if (n < 0) {
         std::cerr<<"Error reading from socket → "<<strerror(errno)<<std::endl;
-        exit(-1);
+        exit(EXIT_FAILURE);
     }
 }
 
