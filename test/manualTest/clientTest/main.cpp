@@ -2,8 +2,9 @@
 
 int main() {
 
-    Client(8080);
+    Client client(8080);
 
+    client.run();
 
     return 0;
 }
