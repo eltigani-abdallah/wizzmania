@@ -22,7 +22,7 @@ Client::Client(int portNum) {
     }
 
     serv_addr.sin_family = AF_INET;
-    bcopy((char*)server ->h_addr, (char*)&serv_addr.sin_addr.s_addr, server->h_length);
+    std::memcpy(&serv_addr.sin_addr.s_addr , server ->h_addr ,  server->h_length);
     serv_addr.sin_port = htons(portno);
 
 }
@@ -66,4 +66,7 @@ void Client::showMessage() {
 
 void Client::run() {
     connectToServer();
+    sendMessage();
+    receiveMessage();
+    showMessage();
 }
