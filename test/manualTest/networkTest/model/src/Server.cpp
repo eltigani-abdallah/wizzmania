@@ -20,12 +20,20 @@ Server::Server(int portNum) {
         exit(EXIT_FAILURE);
     }
 
+    int opt = 1;
+
+    if (setsockopt(sockfd , SOL_SOCKET, SO_REUSEADDR , &opt , sizeof(opt)) < 0){
+    std::cerr<<"Error setting socket option, gonna have to wait a minute before relaunching the server"<<std::endl;
+    }
+
+
     if (bind(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0) {
         std::cerr<<"error binding server socket → "<<strerror(errno)<<std::endl;
         exit(EXIT_FAILURE);
     }
 
     clilen = sizeof(cli_addr);
+
 
 
 
@@ -59,6 +67,7 @@ void Server::readFromSocket() {
         std::cerr<<"Error reading from socket → "<<strerror(errno)<<std::endl;
         exit(EXIT_FAILURE);
     }
+    std::cout << buffer << std::endl;
 }
 
 void Server::run() {

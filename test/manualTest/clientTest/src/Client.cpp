@@ -67,6 +67,6 @@ void Client::showMessage() {
 void Client::run() {
     connectToServer();
     sendMessage();
-    receiveMessage();
-    showMessage();
+    //receiveMessage();
+    //showMessage();
 }
